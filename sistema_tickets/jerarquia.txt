@@ -1,0 +1,21 @@
+sistema_tickets/
+├── tickets/
+│   ├── migrations/
+│   ├── templates/
+│   │   └── tickets/
+│   │       ├── lista_tickets.html
+│   │       ├── crear_ticket.html
+│   │       └── detalle_ticket.html
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── forms.py
+│   ├── models.py
+│   └── views.py
+├── sistema_tickets/
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── db.sqlite3
+├── manage.py
+└── requirements.txt

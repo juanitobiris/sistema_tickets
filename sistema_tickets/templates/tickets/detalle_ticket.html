@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Detalle del Ticket</h2>
+<ul>
+    <li><strong>Título:</strong> {{ ticket.titulo }}</li>
+    <li><strong>Descripción:</strong> {{ ticket.descripcion }}</li>
+    <li><strong>Prioridad:</strong> {{ ticket.prioridad }}</li>
+    <li><strong>Estado:</strong> {{ ticket.estado }}</li>
+    <li><strong>Creado por:</strong> {{ ticket.creado_por }}</li>
+    <li><strong>Creado en:</strong> {{ ticket.creado_en }}</li>
+</ul>
+
+{% if user == ticket.creado_por or user.is_superuser %}
+    <a href="{% url 'editar_ticket' ticket.id %}">✏️ Editar</a>
+    <a href="{% url 'eliminar_ticket' ticket.id %}">🗑️ Eliminar</a>
+{% endif %}
+
+<a href="{% url 'lista_tickets' %}">← Volver a la lista</a>
+{% endblock %}

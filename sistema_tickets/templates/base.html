@@ -1,0 +1,28 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Tickets</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <p>Hola {{ user.username }} | <form action="{% url 'logout' %}" method="post" style="display:inline;">
+    {% csrf_token %}
+    <button type="submit" style="background:none;border:none;padding:0;color:blue;cursor:pointer;">
+        Cerrar sesión
+    </button>
+</form></p>
+    {% else %}
+        <p><a href="{% url 'login' %}">Iniciar sesión</a></p>
+    {% endif %}
+    <hr>
+    <nav>
+        <a href="{% url 'lista_tickets' %}">Ver Tickets</a>
+        <a href="{% url 'crear_ticket' %}">Nuevo Ticket</a>
+    </nav>
+    <hr>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

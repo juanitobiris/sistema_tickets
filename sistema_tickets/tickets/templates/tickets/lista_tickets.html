@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Lista de Tickets</h2>
+<ul>
+  {% for ticket in tickets %}
+    <li>
+      <a href="{% url 'detalle_ticket' ticket.id %}">{{ ticket.titulo }}</a>
+      - Estado: {{ ticket.estado }} - Prioridad: {{ ticket.prioridad }}
+    </li>
+  {% empty %}
+    <li>No hay tickets registrados.</li>
+  {% endfor %}
+</ul>
+
+<a href="{% url 'crear_ticket' %}">➕ Crear nuevo ticket</a>
+{% endblock %}
